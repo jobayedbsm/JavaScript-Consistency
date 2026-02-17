@@ -1,29 +1,21 @@
-let day;
-let date=new Date().getDay();
+const UserRole = {
+  ADMIN: 'admin',
+  EDITOR: 'editor',
+  VIEWER: 'viewer'
+};
 
-switch(date){
-    case 0:
-        day="Sunday"
-        break;
-    case 1:
-        day="Monday"
-        break;
-    case 2:
-        day="Tuesday"
-        break;
-    case 3:
-        day="Wednesday"
-        break;
-    case 4:
-        day="Thursday"
-        break;
-    case 5:
-        day="Friday"
-        break;
-    case 6:
-        day="Saturday"
-        break;
-    
+switch ("editor") {
+  case UserRole.ADMIN:
+    console.log('User has admin privileges');
+    break;
+  case UserRole.EDITOR:
+    console.log('User can edit content');
+    break;
+  case UserRole.VIEWER:
+    console.log('User can view content');
+    break;
+  default:
+    console.log('Unknown user role');
+
+
 }
-
-console.log(day)
