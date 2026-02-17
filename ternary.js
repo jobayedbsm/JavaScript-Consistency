@@ -4,18 +4,24 @@ const UserRole = {
   VIEWER: 'viewer'
 };
 
-switch ("editor") {
-  case UserRole.ADMIN:
-    console.log('User has admin privileges');
-    break;
-  case UserRole.EDITOR:
-    console.log('User can edit content');
-    break;
-  case UserRole.VIEWER:
-    console.log('User can view content');
-    break;
-  default:
-    console.log('Unknown user role');
 
+function getDashboardAccess(userRole) {
 
+    switch (userRole) {
+        case UserRole.ADMIN:
+            return 'admin/dashboard';
+        case UserRole.EDITOR:
+            return 'editor/dashboard';
+        case UserRole.VIEWER:
+            return 'viewer/dashboard';
+        default:
+             throw new Error('Invalid user role');
+    }
+}
+
+try {
+    let user=getDashboardAccess(UserRole.EDITOR); // Output: 'Full access to dashboard'
+console.log(user);
+}catch (error) {    
+    console.error(error.message) // Output: 'Invalid user role'
 }
